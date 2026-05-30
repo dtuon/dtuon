@@ -1,0 +1,195 @@
+---
+layout: default
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap');
+
+  .home-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    min-height: 80vh;
+    padding: 4rem 2rem;
+    text-align: center;
+  }
+
+  .home-avatar-wrap {
+    position: relative;
+    margin-bottom: 2.5rem;
+  }
+
+  .home-avatar {
+    width: 180px;
+    height: 180px;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+  }
+
+  .home-avatar:hover {
+    transform: scale(1.03);
+    box-shadow: 0 12px 50px rgba(0,0,0,0.18);
+  }
+
+  .home-avatar-ring {
+    position: absolute;
+    inset: -6px;
+    border-radius: 50%;
+    border: 1.5px solid rgba(0,0,0,0.12);
+    pointer-events: none;
+  }
+
+  .home-name {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(2.2rem, 5vw, 3.2rem);
+    letter-spacing: 0.04em;
+    margin: 0 0 0.4rem;
+    color: #1a1a1a;
+    line-height: 1.1;
+  }
+
+  .home-tagline {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.78rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: #888;
+    margin: 0 0 2rem;
+  }
+
+  .home-divider {
+    width: 40px;
+    height: 1px;
+    background: #ccc;
+    margin: 0 auto 2rem;
+  }
+
+  .home-blurb {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-style: italic;
+    font-weight: 300;
+    font-size: clamp(1.1rem, 2.5vw, 1.35rem);
+    line-height: 1.8;
+    color: #444;
+    max-width: 520px;
+    margin: 0;
+  }
+
+  /* Fade-in animation */
+  .home-avatar-wrap,
+  .home-name,
+  .home-tagline,
+  .home-divider,
+  .home-blurb {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+  .home-name       { animation-delay: 0.1s; }
+  .home-tagline    { animation-delay: 0.2s; }
+  .home-divider    { animation-delay: 0.3s; }
+  .home-blurb      { animation-delay: 0.4s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* Posts section */
+  .home-posts {
+    max-width: 640px;
+    margin: 0 auto 6rem;
+    padding: 0 2rem;
+  }
+
+  .home-posts-heading {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 2.5rem;
+  }
+
+  .post-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .post-list li {
+    border-top: 1px solid #eee;
+    padding: 1.4rem 0;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    gap: 1rem;
+  }
+
+  .post-list li:last-child {
+    border-bottom: 1px solid #eee;
+  }
+
+  .post-list a {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.15rem;
+    color: #1a1a1a;
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+
+  .post-list a:hover {
+    color: #888;
+  }
+
+  .post-date {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: #bbb;
+    white-space: nowrap;
+  }
+</style>
+
+<section class="home-hero">
+  <div class="home-avatar-wrap">
+    <!-- Replace 'assets/img/profile.jpg' with your actual image path -->
+    <img
+      class="home-avatar"
+      src="{{ '/assets/images/profile.jpg' | relative_url }}"
+      alt="{{ page.title }}"
+    />
+    <div class="home-avatar-ring"></div>
+  </div>
+
+  <h1 class="home-name">{{ page.title | default: site.title }}</h1>
+
+  {% if page.tagline %}
+    <p class="home-tagline">{{ page.tagline }}</p>
+  {% endif %}
+
+  <div class="home-divider"></div>
+
+  <p class="home-blurb">{{ content }}</p>
+</section>
+
+{% if site.posts.size > 0 %}
+<section class="home-posts">
+  <p class="home-posts-heading">Writing</p>
+  <ul class="post-list">
+    {% for post in site.posts %}
+      <li>
+        <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        <span class="post-date">{{ post.date | date: "%b %Y" }}</span>
+      </li>
+    {% endfor %}
+  </ul>
+</section>
+{% endif %}

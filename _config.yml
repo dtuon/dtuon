@@ -1,0 +1,7 @@
+title: Dale Euinton
+baseurl: "" 
+url: ""
+
+plugins:
+  - jekyll-feed
+  - jekyll-sitemap
