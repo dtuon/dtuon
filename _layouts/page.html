@@ -1,0 +1,140 @@
+---
+---
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;1,300&family=Jost:wght@300;400&display=swap');
+
+  .page-wrap {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 4rem 2rem 6rem;
+  }
+
+  .page-back {
+    display: inline-block;
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.72rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: #bbb;
+    text-decoration: none;
+    margin-bottom: 3rem;
+    transition: color 0.2s;
+  }
+
+  .page-back:hover {
+    color: #888;
+  }
+
+  .page-back::before {
+    content: '← ';
+  }
+
+  .page-title {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-weight: 300;
+    font-size: clamp(2rem, 5vw, 2.8rem);
+    letter-spacing: 0.03em;
+    color: #1a1a1a;
+    line-height: 1.15;
+    margin: 0 0 0.5rem;
+  }
+
+  .page-divider {
+    width: 40px;
+    height: 1px;
+    background: #ccc;
+    margin: 1.5rem 0 2.5rem;
+  }
+
+  /* Prose styles */
+  .page-content {
+    font-family: 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.05rem, 2vw, 1.2rem);
+    line-height: 1.85;
+    color: #333;
+  }
+
+  .page-content p {
+    margin: 0 0 1.4em;
+  }
+
+  .page-content h2 {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaa;
+    margin: 3rem 0 1.2rem;
+  }
+
+  .page-content h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-weight: 400;
+    font-size: 1.25rem;
+    color: #1a1a1a;
+    margin: 2rem 0 0.5rem;
+  }
+
+  .page-content a {
+    color: #1a1a1a;
+    text-decoration: underline;
+    text-underline-offset: 3px;
+    text-decoration-color: #ccc;
+    transition: text-decoration-color 0.2s;
+  }
+
+  .page-content a:hover {
+    text-decoration-color: #888;
+  }
+
+  .page-content ul,
+  .page-content ol {
+    padding-left: 1.4rem;
+    margin: 0 0 1.4em;
+  }
+
+  .page-content li {
+    margin-bottom: 0.4em;
+  }
+
+  .page-content blockquote {
+    border-left: 1.5px solid #ccc;
+    margin: 2rem 0;
+    padding: 0.2rem 0 0.2rem 1.4rem;
+    font-style: italic;
+    color: #666;
+  }
+
+  /* Fade-in, matching home */
+  .page-back,
+  .page-title,
+  .page-divider,
+  .page-content {
+    opacity: 0;
+    transform: translateY(16px);
+    animation: fadeUp 0.7s ease forwards;
+  }
+
+  .page-title   { animation-delay: 0.1s; }
+  .page-divider { animation-delay: 0.2s; }
+  .page-content { animation-delay: 0.3s; }
+
+  @keyframes fadeUp {
+    to { opacity: 1; transform: translateY(0); }
+  }
+</style>
+
+<div class="page-wrap">
+  <a class="page-back" href="{{ '/' | relative_url }}">Home</a>
+
+  <title>{{ page.title }}</title>
+  <h1 class="page-title">{{ page.title }}</h1>
+  <div class="page-divider"></div>
+
+  <div class="page-content">
+    {{ content }}
+  </div>
+</div>

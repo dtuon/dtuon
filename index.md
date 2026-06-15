@@ -1,6 +1,6 @@
 ---
 layout: home
-title: "Dale Euinton"
+title: Dale Euinton
 ---
 
 Hi 👋 I'm Dale! I'm a software developer based in Auckland, New Zealand.
