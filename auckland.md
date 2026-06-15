@@ -1,6 +1,7 @@
 ---
-layout: guide
+layout: page
 title: My Guide to Auckland
+permalink: /auckland/
 ---
 
 I love Auckland! It's the biggest city in Aotearoa, the "city of sails", and, of course, known home of JAFAs. Aucklanders get a lot of stick from the rest of the country, but I think it's because they're jealous of us having the most opportunities, while still having great access to nature. In Auckland, you can surf on both the East and West coast easily, go for beautiful bush walks, and also see the best of what New Zealand's hospitality and arts scene has to offer! It's an amazing place and I feel lucky to live here.

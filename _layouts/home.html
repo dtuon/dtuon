@@ -156,6 +156,59 @@ layout: default
     color: #bbb;
     white-space: nowrap;
   }
+
+  .home-places {
+    max-width: 640px;
+    margin: 0 auto 4rem;
+    padding: 0 2rem;
+  }
+
+  .home-places-heading {
+    font-family: 'Jost', sans-serif;
+    font-weight: 300;
+    font-size: 0.75rem;
+    letter-spacing: 0.22em;
+    text-transform: uppercase;
+    color: #aaa;
+    text-align: center;
+    margin-bottom: 1.4rem;
+  }
+  
+  .place-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border: 0.5px solid #e5e5e5;
+    border-radius: 10px;
+    padding: 1.1rem 1.3rem;
+    text-decoration: none;
+    transition: border-color 0.2s;
+  }
+  
+  .place-card:hover {
+    border-color: #bbb;
+  }
+  
+  .place-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.2rem;
+    color: #1a1a1a;
+    display: block;
+  }
+  
+  .place-sub {
+    font-family: 'Jost', sans-serif;
+    font-size: 0.72rem;
+    letter-spacing: 0.1em;
+    color: #aaa;
+    display: block;
+    margin-top: 2px;
+  }
+  
+  .place-arrow {
+    color: #bbb;
+    font-size: 1rem;
+  }
 </style>
 
 <section class="home-hero">
@@ -178,6 +231,17 @@ layout: default
   <div class="home-divider"></div>
 
   <p class="home-blurb">{{ content }}</p>
+</section>
+
+<section class="home-places">
+  <p class="home-places-heading">Places</p>
+  <a class="place-card" href="{{ '/auckland/' | relative_url }}">
+    <div>
+      <span class="place-title">My Guide to Auckland</span>
+      <span class="place-sub">Some personal recommendations</span>
+    </div>
+    <span class="place-arrow">→</span>
+  </a>
 </section>
 
 {% if site.posts.size > 0 %}
